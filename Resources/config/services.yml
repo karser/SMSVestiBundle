@@ -1,0 +1,9 @@
+parameters:
+    karser.handler.sms_vesti.class: Karser\SMSVestiBundle\Handler\SMSVestiHandler
+
+services:
+    karser.handler.sms_vesti:
+        class: %karser.handler.sms_vesti.class%
+        arguments: [ %sms_vesti.login%, %sms_vesti.password% ]
+        tags:
+            - {name: "sms.handler"}
