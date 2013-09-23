@@ -63,6 +63,8 @@ class SMSVestiHandler extends AbstractHandler implements HandlerInterface
         $status = (float) $matches[1];
         switch ($status) {
             case 0:
+            case 1:
+            case 2:
                 return SMSTaskInterface::STATUS_PROCESSING;
             case 3:
                 return SMSTaskInterface::STATUS_SENT;
