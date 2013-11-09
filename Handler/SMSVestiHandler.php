@@ -37,7 +37,7 @@ class SMSVestiHandler extends AbstractHandler implements HandlerInterface
     public function supports($number, HlrInterface $hlr = null)
     {
         if ($hlr) {
-            return $hlr->getOpsos() === 'МегаФон';
+            return $hlr->getOpsos() !== 'МегаФон';
         }
         return parent::supports($number, $hlr);
     }
