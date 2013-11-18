@@ -1,18 +1,13 @@
 <?php
 namespace Karser\SMSVestiBundle\Handler;
 
-
 use Guzzle\Http\Client;
-use Karser\SMSBundle\Entity\HlrInterface;
 use Karser\SMSBundle\Entity\SMSTaskInterface;
 use Karser\SMSBundle\Handler\AbstractHandler;
-use Karser\SMSBundle\Handler\HandlerInterface;
 
-class SMSVestiHandler extends AbstractHandler implements HandlerInterface
+class SMSVestiHandler extends AbstractHandler
 {
     protected $name = 'karser.handler.sms_vesti';
-
-    protected $cost = 0.1;
 
     /** @var string */
     private $login;
@@ -34,13 +29,6 @@ class SMSVestiHandler extends AbstractHandler implements HandlerInterface
         return $request->send();
     }
 
-    public function supports($number, HlrInterface $hlr = null)
-    {
-        if ($hlr) {
-            return $hlr->getOpsos() !== 'МегаФон';
-        }
-        return parent::supports($number, $hlr);
-    }
 
     public function getBalance()
     {
