@@ -23,7 +23,7 @@ class SMSVestiHandler extends AbstractHandler
 
     private function postQuery($path, array $params = [])
     {
-        $client = new Client('http://api.smsvesti.ru/interfaces/');
+        $client = new Client('http://api.infosmska.ru/interfaces/');
         $params = array_merge(['login'=> $this->login, 'pwd'=> $this->password], $params);
         $request = $client->post($path)->addPostFields($params);
         return $request->send();
