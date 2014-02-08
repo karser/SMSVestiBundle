@@ -48,7 +48,7 @@ class SMSVestiHandler extends AbstractHandler
         return (int) $matches[1];
     }
 
-    public function checkStatus($message_id)
+    public function checkStatus($message_id, $phone = null)
     {
         $params = ['ids' => $message_id];
         $response = $this->postQuery('GetMessagesState.ashx', $params);
